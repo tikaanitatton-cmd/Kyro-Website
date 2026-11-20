@@ -1,6 +1,6 @@
 # Kyro Marketing: SEO-optimised static site
 
-Static HTML, one CSS file, two small JS files, self-hosted fonts. No framework, no build step needed to host it.
+Static HTML, inline CSS, two small JS files, self-hosted fonts. No framework, no build step needed to host it.
 
 ## Deploy
 Upload this whole folder to Netlify (drag and drop works) or any static host. Pages live at clean URLs such as `/services/meta-ads/`, so use a host that serves `folder/index.html` (Netlify, Vercel, Cloudflare Pages, GitHub Pages all do). Opening `index.html` straight from disk shows the home page only; links to other pages need a web server.
@@ -16,11 +16,17 @@ Upload this whole folder to Netlify (drag and drop works) or any static host. Pa
 8. Add real client testimonials or logos only with permission, then they can be added to the home page.
 
 ## Editing
-All copy is in `build/content.py`; layout and templates are in `build/build.py`. After editing run:
+- Copy lives in `build/content.py`; page templates are in `build/build.py`; the readable CSS and JS are in `src/`.
+- After any edit run:
 
-    python3 build/build.py      # needs Python 3 and Pillow
+      python3 build/build.py      # needs Python 3 and Pillow
 
-It regenerates every page, `sitemap.xml` and `robots.txt`.
+  It regenerates every page, minifies the CSS (inlined into each page) and JS, adds a version tag to the script URLs, and rewrites `sitemap.xml`, `robots.txt` and `_headers`.
+
+## Performance and security notes
+- Lighthouse (local, mobile settings): Performance, Accessibility, Best Practices and SEO all 100 on the home, an industry and the results page.
+- Google Analytics loads on the first scroll, click or key press, or after 5 seconds, so it doesn't slow the first load. Very short visits with no interaction may not be counted.
+- `_headers` (Netlify) sets caching and a Content-Security-Policy. If you add another third-party script, such as the Meta Pixel, add its domains to the policy in `build/build.py`, or it will be blocked.
 
 ## What is on the site
 - Home, 6 service pages, 6 industry pages (detailing, car wash, tinting, ceramic coating, PPF, headlight restoration), case studies, ad results (real Meta screenshots), apply, thank-you, privacy, terms, 404.

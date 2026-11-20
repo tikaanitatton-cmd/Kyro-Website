@@ -2,9 +2,7 @@
 @font-face{font-family:"Instrument Serif";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/instrument-serif-400.woff2) format("woff2")}
 @font-face{font-family:"Instrument Serif";font-style:italic;font-weight:400;font-display:swap;src:url(../fonts/instrument-serif-400-italic.woff2) format("woff2")}
 @font-face{font-family:"Barlow";font-style:normal;font-weight:300;font-display:swap;src:url(../fonts/barlow-300.woff2) format("woff2")}
-@font-face{font-family:"Barlow";font-style:normal;font-weight:400;font-display:swap;src:url(../fonts/barlow-400.woff2) format("woff2")}
 @font-face{font-family:"Barlow";font-style:normal;font-weight:500;font-display:swap;src:url(../fonts/barlow-500.woff2) format("woff2")}
-@font-face{font-family:"Barlow";font-style:normal;font-weight:600;font-display:swap;src:url(../fonts/barlow-600.woff2) format("woff2")}
 
 :root{
   --bg:#0B0B0C; --bg-2:#101012; --red:#E4312B; --red-deep:#7A1013; --red-text:#FF6B63;
@@ -65,7 +63,7 @@ ul{margin:0;padding:0;list-style:none}
 .brand{display:flex;align-items:center;gap:12px;font:italic 400 24px/1 var(--display);color:#fff}
 .brand img{width:48px;height:48px;border-radius:50%}
 .nav{display:flex;align-items:center;gap:4px;padding:6px;border-radius:999px}
-.nav a{padding:9px 16px;border-radius:999px;font:400 15px/1 var(--body);color:#fff;transition:background .3s}
+.nav a{padding:9px 16px;border-radius:999px;font:500 15px/1 var(--body);color:#fff;transition:background .3s}
 .nav a:hover{background:rgba(255,255,255,.1)}
 .nav a[aria-current="page"]{background:rgba(255,255,255,.12)}
 .nav .btn{margin-left:6px;min-height:40px;padding:0 18px}

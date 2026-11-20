@@ -55,6 +55,7 @@ ORG = {"@context": "https://schema.org", "@type": "ProfessionalService", "@id": 
        "areaServed": {"@type": "Country", "name": "Australia"},
        "address": {"@type": "PostalAddress", "addressRegion": "VIC", "addressCountry": "AU"},
        "sameAs": [SITE['facebook'], SITE['instagram']],
+       "contactPoint": {"@type": "ContactPoint", "contactType": "sales", "email": SITE['email'], "areaServed": "AU", "availableLanguage": "en"},
        "serviceType": "Digital advertising for automotive businesses",
        "knowsAbout": ["Meta ads", "Google Ads", "TikTok ads", "Car detailing marketing", "Window tinting marketing", "Ceramic coating marketing", "Paint protection film marketing"]}
 WEBSITE = {"@context": "https://schema.org", "@type": "WebSite", "@id": URL + "/#website", "url": URL + "/", "name": SITE['name'], "publisher": {"@id": URL + "/#org"}, "inLanguage": "en-AU"}
@@ -85,7 +86,7 @@ def footer(L):
     ind = ''.join(f'<li><a href="{L("industries/" + i["slug"] + "/")}">{i["title"]}</a></li>' for i in INDUSTRIES)
     return f'''<footer class="site-footer"><div class="wrap">
 <div class="foot-grid">
-<div class="foot-brand"><a class="brand" href="{L('')}"><img src="{L('assets/logo-112.webp')}" width="56" height="56" alt="" loading="lazy"><span>Kyro Marketing</span></a>
+<div class="foot-brand"><a class="brand" href="{L('')}" aria-label="Kyro Marketing home"><img src="{L('assets/logo-112.webp')}" width="56" height="56" alt="" loading="lazy"><span>Kyro Marketing</span></a>
 <p>Performance advertising for automotive businesses: detailing, car washes, tinting, ceramic coating, PPF and headlight restoration.</p>
 <div class="social"><a class="glass" href="{SITE['facebook']}" target="_blank" rel="noopener" aria-label="Kyro Marketing on Facebook">{icon('fb')}</a><a class="glass" href="{SITE['instagram']}" target="_blank" rel="noopener" aria-label="Kyro Marketing on Instagram">{icon('insta')}</a></div></div>
 <div><h2>Services</h2><ul>{svc}</ul></div>
@@ -109,9 +110,8 @@ def layout(p):
         head_preload += f'\n<link rel="preload" as="image" href="{pre}assets/hero-poster.webp" media="(min-width:701px)" fetchpriority="high">\n<link rel="preload" as="image" href="{pre}assets/hero-poster-m.webp" media="(max-width:700px)" fetchpriority="high">'
     og_img = URL + '/assets/og-image.jpg'
     ld = ''.join(jsonld(s) for s in p.schema)
-    ga = f'''<script async src="https://www.googletagmanager.com/gtag/js?id={SITE['ga']}"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{SITE['ga']}');</script>'''
-    scripts = f'<script src="{pre}js/site.js" defer></script>' + ''.join(f'<script src="{pre}js/{s}" defer></script>' for s in p.extra_js)
+    ga = f'''<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag('js',new Date());gtag('config','{SITE['ga']}');var done=0,f=function(){{if(done)return;done=1;var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id={SITE['ga']}';document.head.appendChild(s)}};['scroll','pointerdown','keydown','touchstart'].forEach(function(e){{addEventListener(e,f,{{once:true,passive:true}})}});addEventListener('load',function(){{setTimeout(f,5000)}})</script>'''
+    scripts = f'<script src="{pre}js/site.js?v=@@site.js@@" defer></script>' + ''.join(f'<script src="{pre}js/{s}?v=@@{s}@@" defer></script>' for s in p.extra_js)
     return f'''<!DOCTYPE html>
 <html lang="en-AU">
 <head>
@@ -121,6 +121,8 @@ def layout(p):
 <meta name="description" content="{E(p.desc)}">
 <meta name="robots" content="{robots}">
 <link rel="canonical" href="{canon}">
+<link rel="alternate" hreflang="en-AU" href="{canon}">
+<link rel="alternate" hreflang="x-default" href="{canon}">
 <meta name="theme-color" content="#0B0B0C">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Kyro Marketing">
@@ -131,6 +133,7 @@ def layout(p):
 <meta property="og:image" content="{og_img}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kyro Marketing: performance advertising for automotive businesses">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{E(p.og_title)}">
 <meta name="twitter:description" content="{E(p.desc)}">
@@ -140,7 +143,7 @@ def layout(p):
 <link rel="apple-touch-icon" href="{pre}assets/apple-touch-icon.png">
 <link rel="manifest" href="{pre}site.webmanifest">
 {head_preload}
-<link rel="stylesheet" href="{pre}css/site.css">
+<!--INLINE_CSS:{pre}-->
 {p.extra_head}
 {ld}
 {ga if not p.noindex or p.path == 'thank-you' else ''}
@@ -311,10 +314,17 @@ def industry_page(i):
     case_html = (f'<section class="section section--line"><div class="wrap"><h2 class="reveal" style="margin-bottom:32px">Results in this industry</h2><div class="grid grid--3">{case_cards(L, cases, link=False)}</div><p class="reveal" style="margin-top:28px"><a class="link" href="{L("case-studies/")}">See all case studies {icon("arrow")}</a></p></div></section>'
                  if cases else '')
     svcs = ''.join(f'<a class="chip glass" href="{L("services/" + s["slug"] + "/")}">{E(s["title"])}</a>' for s in SERVICES)
+    others_ind = ''.join(f'<a class="chip glass" href="{L("industries/" + o["slug"] + "/")}">{E(o["title"])}</a>' for o in INDUSTRIES if o['slug'] != i['slug'])
+    offers = ''.join(f'<li>{E(x)}</li>' for x in i['offers'])
+    creative = ''.join(f'<li>{E(x)}</li>' for x in i['creative'])
+    plan = ''.join(f'<div class="step card glass reveal"><b>{n+1:02d}</b><p>{E(x)}</p></div>' for n, x in enumerate(i['plan']))
     body = f'''{page_hero(L, [('Industries', L('industries/')), (i['crumb'], '')], 'Industries', i['h1'], i['intro'])}
 <section class="section section--line"><div class="wrap"><h2 class="reveal" style="margin-bottom:32px">What works for {E(i['title'].lower())}</h2><div class="grid grid--2">{angles}</div></div></section>
+<section class="section section--line"><div class="wrap"><div class="grid grid--2" style="gap:60px;align-items:start"><div><h2 class="reveal">Offers that work</h2><ul class="ticks reveal" style="margin-top:24px">{offers}</ul></div><div><h2 class="reveal">Creative that gets attention</h2><ul class="ticks reveal" style="margin-top:24px">{creative}</ul></div></div></div></section>
+<section class="section section--line"><div class="wrap"><h2 class="reveal" style="margin-bottom:32px">Your first month</h2><div class="grid grid--3">{plan}</div></div></section>
 {case_html}
 <section class="section section--line"><div class="wrap center"><h2 class="reveal">The services we use</h2><p class="lede reveal" style="margin-top:14px">Every campaign is built from the same toolkit, matched to how your customers find you.</p><div class="chips reveal" style="margin-top:30px">{svcs}</div></div></section>
+<section class="section section--line"><div class="wrap center"><h2 class="reveal" style="font-size:36px">Other automotive industries</h2><div class="chips reveal" style="margin-top:26px">{others_ind}</div></div></section>
 {faq_block(i['faq'], f"{i['title']} advertising questions", 'faq', True)}
 {cta_band(L, f"Ready to fill your {i['title'].lower()} calendar?")}'''
     schema = [breadcrumb_schema([('Home', '/'), ('Industries', '/industries/'), (i['crumb'], f"/industries/{i['slug']}/")]), faq_schema(i['faq']),
@@ -428,6 +438,55 @@ def notfound():
     return p
 nf = notfound()
 
+
+# ----------------------------------------------------------------------------- minify + asset versioning
+import re, hashlib
+SRC = os.path.join(ROOT, 'src')
+
+def css_min(css):
+    keep = []
+    def stash(m):
+        keep.append(m.group(0)); return f'\u0000{len(keep)-1}\u0000'
+    css = re.sub(r'url\((?:"[^"]*"|\'[^\']*\'|[^)]*)\)', stash, css)
+    css = re.sub(r'/\*.*?\*/', '', css, flags=re.S)
+    css = re.sub(r'\s+', ' ', css)
+    css = re.sub(r'\s*([{};,>])\s*', r'\1', css)
+    css = re.sub(r':\s+', ':', css)
+    css = css.replace(';}', '}')
+    css = re.sub(r'\u0000(\d+)\u0000', lambda m: keep[int(m.group(1))], css)
+    return css.strip()
+
+def js_min(js):
+    js = re.sub(r'/\*.*?\*/', '', js, flags=re.S)
+    out = []
+    for line in js.split('\n'):
+        t = line.strip()
+        if not t or t.startswith('//'): continue
+        out.append(t)
+    return '\n'.join(out)
+
+BLOCK = r'(?:html|head|body|meta|link|title|script|style|header|footer|nav|main|section|article|figure|div|ul|ol|li|form|details|summary|h[1-6]|p|label|select|option|textarea|symbol|picture|source|video|dl|dt|dd|br|hr)'
+def html_min(h):
+    parts = re.split(r'(<script\b.*?</script>|<style\b.*?</style>|<textarea\b.*?</textarea>)', h, flags=re.S)
+    for i in range(0, len(parts), 2):
+        t = re.sub(r'\s+', ' ', parts[i])
+        t = re.sub(r'(</?' + BLOCK + r'\b[^>]*>) (?=<)', r'\1', t)
+        t = re.sub(r'(?<=>) (?=</?' + BLOCK + r'\b)', '', t)
+        parts[i] = t
+    return ''.join(parts).strip() + '\n'
+
+CSS_SRC = css_min(open(os.path.join(SRC, 'site.css'), encoding='utf-8').read())
+JS_MIN = {}
+for name in ('site.js', 'apply.js'):
+    JS_MIN[name] = js_min(open(os.path.join(SRC, name), encoding='utf-8').read())
+JS_HASH = {k: hashlib.sha1(v.encode()).hexdigest()[:8] for k, v in JS_MIN.items()}
+
+def finish(html):
+    html = re.sub(r'<!--INLINE_CSS:(.*?)-->', lambda m: '<style>' + CSS_SRC.replace('../fonts/', m.group(1) + 'fonts/') + '</style>', html)
+    for k, v in JS_HASH.items():
+        html = html.replace(f'@@{k}@@', v)
+    return html_min(html)
+
 # ----------------------------------------------------------------------------- write
 def write(rel, text):
     full = os.path.join(ROOT, rel)
@@ -437,15 +496,17 @@ def write(rel, text):
 urls = []
 for p in pages:
     rel = os.path.join(p.path, 'index.html') if p.path else 'index.html'
-    write(rel, layout(p))
+    write(rel, finish(layout(p)))
     if not p.noindex: urls.append('/' + p.path if p.path else '/')
 # the 404 page needs root-relative assets because it can be served from any path
-html404 = layout(nf).replace('href="./"', 'href="/"')
+html404 = layout(nf).replace('<!--INLINE_CSS:-->', '<!--INLINE_CSS:/-->').replace('href="./"', 'href="/"')
 for attr in ('href', 'src'):
     for folder in ('css/', 'js/', 'assets/', 'fonts/'):
         html404 = html404.replace(f'{attr}="{folder}', f'{attr}="/{folder}')
 html404 = html404.replace('href="favicon.ico"', 'href="/favicon.ico"').replace('href="site.webmanifest"', 'href="/site.webmanifest"')
-write('404.html', html404)
+write('404.html', finish(html404))
+for name, code in JS_MIN.items():
+    write('js/' + name, code)
 
 def prio(u):
     return '1.0' if u == '/' else ('0.8' if u.count('/') <= 2 else '0.7')
@@ -462,14 +523,17 @@ write('_headers', '''/*
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
   X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://api.web3forms.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; img-src 'self' data: https://www.google-analytics.com https://*.google-analytics.com https://*.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; media-src 'self'; manifest-src 'self'; form-action 'self' https://api.web3forms.com; base-uri 'self'; frame-ancestors 'self'; object-src 'none'
 
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
-/css/*
-  Cache-Control: public, max-age=604800
 /js/*
+  Cache-Control: public, max-age=31536000, immutable
+/favicon.ico
   Cache-Control: public, max-age=604800
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
 ''')
 print(f'built {len(pages)} pages + 404, {len(urls)} in sitemap')
