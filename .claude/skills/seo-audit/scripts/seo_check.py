@@ -177,11 +177,18 @@ def main():
             data = json.loads(raw)
             types = data.get("@type") if isinstance(data, dict) else "list"
             add("PASS", f"JSON-LD parses, @type={types}")
-            if isinstance(data, dict):
-                for key in ("name", "telephone"):
-                    if key not in data:
-                        add("WARN", f"JSON-LD missing '{key}'")
-                if any(k in data for k in ("aggregateRating", "review")):
+            items = data if isinstance(data, list) else [data]
+            for it in items:
+                if not isinstance(it, dict):
+                    continue
+                t = it.get("@type")
+                ts = t if isinstance(t, list) else [t]
+                local = any(isinstance(x, str) and any(k in x for k in ("Business", "Service", "Organization", "Store", "Dealer", "Repair")) and x not in ("Service",) for x in ts)
+                if local:
+                    for key in ("name", "telephone"):
+                        if key not in it and not (key == "telephone" and "email" in it):
+                            add("WARN", f"JSON-LD {t} missing '{key}'")
+                if any(k in it for k in ("aggregateRating", "review")):
                     add("INFO", "JSON-LD contains ratings/reviews: confirm they are real and visible on the page")
         except Exception as e:
             add("FAIL", f"JSON-LD does not parse: {e}")
@@ -194,8 +201,18 @@ def main():
     else:
         import os
         folder = os.path.dirname(os.path.abspath(src))
-        add("PASS" if os.path.exists(os.path.join(folder, "robots.txt")) else "WARN", "robots.txt next to the page: " + ("found" if os.path.exists(os.path.join(folder, "robots.txt")) else "not found"))
-        add("PASS" if os.path.exists(os.path.join(folder, "sitemap.xml")) else "WARN", "sitemap.xml next to the page: " + ("found" if os.path.exists(os.path.join(folder, "sitemap.xml")) else "not found (add once the domain is known)"))
+        def find(name):
+            cur = folder
+            for _ in range(6):
+                if os.path.exists(os.path.join(cur, name)):
+                    return True
+                nxt = os.path.dirname(cur)
+                if nxt == cur:
+                    break
+                cur = nxt
+            return False
+        add("PASS" if find("robots.txt") else "WARN", "robots.txt in this folder or a parent: " + ("found" if find("robots.txt") else "not found"))
+        add("PASS" if find("sitemap.xml") else "WARN", "sitemap.xml in this folder or a parent: " + ("found" if find("sitemap.xml") else "not found (add once the domain is known)"))
 
     for level, msg in results:
         print(f"{level:5} {msg}")

@@ -1,0 +1,473 @@
+[
+ {
+  "date": "",
+  "when": "Window tint & paint protection client · 3 campaigns",
+  "tag": "Biggest result",
+  "tone": "good",
+  "img": 13,
+  "h": "468 people messaged a tint business across three campaigns",
+  "p": [
+   "We ran three campaigns for one client, one for each service: home window tinting, paint protection film and car window tinting. Together they brought in 468 message enquiries at an average of $14.64 each.",
+   "The car tint and home tint campaigns both came in around $13 per enquiry. Paint protection cost more per enquiry ($19.08), which is normal for a higher-priced service."
+  ],
+  "s": [
+   [
+    "468",
+    "<strong>Conversations</strong> across all three campaigns."
+   ],
+   [
+    "182",
+    "<strong>Home window tint</strong> enquiries at $13.23 each."
+   ],
+   [
+    "168",
+    "<strong>Car window tint</strong> enquiries at $13.05 each."
+   ],
+   [
+    "118",
+    "<strong>Paint protection</strong> enquiries at $19.08 each."
+   ],
+   [
+    "$14.64",
+    "<strong>Average cost per conversation.</strong>"
+   ]
+  ]
+ },
+ {
+  "date": "",
+  "when": "Lead campaign",
+  "tag": "Strong",
+  "tone": "good",
+  "img": 14,
+  "h": "61 leads and 75 conversations from one campaign",
+  "p": [
+   "One campaign brought 61 leads at $15.63 each, plus 75 people messaging the business.",
+   "1,347 people clicked the ad at 71 cents per click, and 3.42% of people who saw it clicked, which is well above most of the other results here."
+  ],
+  "s": [
+   [
+    "61",
+    "<strong>Leads</strong> at $15.63 each."
+   ],
+   [
+    "75",
+    "<strong>Conversations.</strong>"
+   ],
+   [
+    "1,347",
+    "<strong>Clicks</strong> at $0.71 each."
+   ],
+   [
+    "3.42%",
+    "<strong>Click rate.</strong> About 3 or 4 in every 100 people clicked."
+   ]
+  ]
+ },
+ {
+  "date": "",
+  "when": "Click campaign",
+  "tag": "Top click rate",
+  "tone": "good",
+  "img": 15,
+  "h": "5% of people who saw this ad clicked it",
+  "p": [
+   "This ad had the highest click rate in this set. 5.11% of people who saw it clicked, about 1 in every 20.",
+   "29 of its 30 clicks went straight through to the business, at about 70 cents each. Each person saw it 1.61 times on average, so it grabbed attention without being shown over and over."
+  ],
+  "s": [
+   [
+    "5.11%",
+    "<strong>Click rate.</strong> About 1 in 20 people clicked."
+   ],
+   [
+    "29",
+    "<strong>Link clicks</strong> out of 30 total clicks."
+   ],
+   [
+    "$0.71",
+    "<strong>Cost per link click.</strong>"
+   ],
+   [
+    "1.61",
+    "<strong>Frequency.</strong>"
+   ]
+  ]
+ },
+ {
+  "date": "12 April 2026",
+  "tag": "Early test",
+  "tone": "warn",
+  "img": 0,
+  "h": "5 people messaged the business from a $40 test",
+  "p": [
+   "This was a small test with $39.88 of ad spend. For that money, 5 people started a chat with the business, which works out to $7.98 per conversation.",
+   "Meta also recorded about 4 leads at $9.97 each."
+  ],
+  "s": [
+   [
+    "$39.88",
+    "<strong>Spent</strong> on the ads."
+   ],
+   [
+    "5",
+    "<strong>Conversations.</strong> People who messaged the business."
+   ],
+   [
+    "$7.98",
+    "<strong>Cost per conversation.</strong>"
+   ],
+   [
+    "2.22%",
+    "<strong>Click rate.</strong> About 2 in every 100 people who saw the ad clicked it."
+   ]
+  ]
+ },
+ {
+  "date": "18 April 2026",
+  "tag": "Two ads compared",
+  "tone": "",
+  "img": 1,
+  "h": "15 message enquiries across two ads for $147",
+  "p": [
+   "Two ads ran side by side (one per row). The first spent $21.58 and brought in 2 conversations. The second spent $125.90 and brought in 13 conversations at $9.68 each.",
+   "Running ads side by side shows which one deserves more of the budget."
+  ],
+  "s": [
+   [
+    "15",
+    "<strong>Conversations</strong> across both ads."
+   ],
+   [
+    "$9.68",
+    "<strong>Cost per conversation</strong> on the stronger ad."
+   ],
+   [
+    "$0.55–0.95",
+    "<strong>Cost per click.</strong>"
+   ],
+   [
+    "1.3–1.7",
+    "<strong>Frequency.</strong> Each person saw the ad less than twice on average."
+   ]
+  ]
+ },
+ {
+  "date": "22 April 2026",
+  "tag": "Solid",
+  "tone": "good",
+  "img": 2,
+  "h": "9 leads and about 15 conversations from $176",
+  "p": [
+   "$175.93 of ad spend brought 179 clicks. Meta recorded 9 leads at $19.54 each.",
+   "The cost per messaging conversation was $11.73, which works out to about 15 people messaging the business."
+  ],
+  "s": [
+   [
+    "9",
+    "<strong>Leads</strong> at $19.54 each."
+   ],
+   [
+    "~15",
+    "<strong>Conversations</strong> at $11.73 each."
+   ],
+   [
+    "179",
+    "<strong>Clicks</strong> at $0.98 each."
+   ],
+   [
+    "2.29%",
+    "<strong>Click rate.</strong>"
+   ]
+  ]
+ },
+ {
+  "date": "1 May 2026",
+  "tag": "Live campaign",
+  "tone": "good",
+  "img": 3,
+  "h": "25 people messaged the business while the ad was still running",
+  "p": [
+   "This screenshot was taken while the campaign was still live. At that point, 25 people had started a conversation at $14.80 each, about $370 in total.",
+   "Meta had also recorded 16 leads."
+  ],
+  "s": [
+   [
+    "25",
+    "<strong>Conversations.</strong>"
+   ],
+   [
+    "16",
+    "<strong>Leads.</strong>"
+   ],
+   [
+    "$14.80",
+    "<strong>Cost per conversation.</strong>"
+   ],
+   [
+    "2.08",
+    "<strong>Frequency.</strong> Each person saw the ad about twice."
+   ]
+  ]
+ },
+ {
+  "date": "4 May 2026",
+  "tag": "Strong",
+  "tone": "good",
+  "img": 4,
+  "h": "28 conversations and 19 leads from $426",
+  "p": [
+   "$425.62 of ad spend brought 476 clicks, which is under $1 per click.",
+   "28 people messaged the business at $15.20 each, and Meta recorded 19 leads."
+  ],
+  "s": [
+   [
+    "$425.62",
+    "<strong>Spent.</strong>"
+   ],
+   [
+    "28",
+    "<strong>Conversations</strong> at $15.20 each."
+   ],
+   [
+    "19",
+    "<strong>Leads.</strong>"
+   ],
+   [
+    "476",
+    "<strong>Clicks.</strong> People who clicked the ad."
+   ]
+  ]
+ },
+ {
+  "date": "7 May 2026",
+  "tag": "Strong",
+  "tone": "good",
+  "img": 5,
+  "h": "32 people reached out from under $500 of ads",
+  "p": [
+   "$489.88 of ad spend brought 32 message conversations at $15.31 each.",
+   "Meta also recorded about 21 leads at $23.33 each. Some of these may be the same people who messaged."
+  ],
+  "s": [
+   [
+    "32",
+    "<strong>Conversations.</strong>"
+   ],
+   [
+    "~21",
+    "<strong>Leads</strong> at $23.33 each."
+   ],
+   [
+    "$15.31",
+    "<strong>Cost per conversation.</strong>"
+   ],
+   [
+    "0.97%",
+    "<strong>Link click rate.</strong> This only counts clicks on the link itself, so it's lower than the other click rates."
+   ]
+  ]
+ },
+ {
+  "date": "11 May 2026",
+  "tag": "Two ads compared",
+  "tone": "",
+  "img": 6,
+  "h": "20 leads and 24 conversations across two ads",
+  "p": [
+   "Two ads ran together for $411.49 in total. The first spent $79.04 for 3 leads and 6 conversations.",
+   "The second spent $332.45 for 17 leads and 18 conversations. More people clicked it too (3.29% against 2.31%), so it was the clear winner."
+  ],
+  "s": [
+   [
+    "20",
+    "<strong>Leads</strong> across both ads."
+   ],
+   [
+    "24",
+    "<strong>Conversations</strong> across both ads."
+   ],
+   [
+    "$19.56",
+    "<strong>Cost per lead</strong> on the stronger ad."
+   ],
+   [
+    "3.29%",
+    "<strong>Click rate</strong> on the stronger ad."
+   ]
+  ]
+ },
+ {
+  "date": "16 May 2026",
+  "tag": "Strong",
+  "tone": "good",
+  "img": 7,
+  "h": "23 leads at $18 each, with one of the best click rates",
+  "p": [
+   "$418.81 of ad spend brought 23 leads at $18.21 each and 24 conversations at $17.45 each.",
+   "3.56% of people who saw the ad clicked it, one of the highest rates in this set."
+  ],
+  "s": [
+   [
+    "23",
+    "<strong>Leads</strong> at $18.21 each."
+   ],
+   [
+    "24",
+    "<strong>Conversations</strong> at $17.45 each."
+   ],
+   [
+    "3.56%",
+    "<strong>Click rate.</strong> About 3 or 4 in every 100 people clicked."
+   ],
+   [
+    "$418.81",
+    "<strong>Spent.</strong>"
+   ]
+  ]
+ },
+ {
+  "date": "16 May 2026",
+  "tag": "Small budget",
+  "tone": "",
+  "img": 8,
+  "h": "8 conversations at under $11 each",
+  "p": [
+   "A smaller ad spent $87.74.",
+   "It brought 8 conversations at $10.97 each and 3 leads at $29.25 each."
+  ],
+  "s": [
+   [
+    "8",
+    "<strong>Conversations</strong> at $10.97 each."
+   ],
+   [
+    "3",
+    "<strong>Leads</strong> at $29.25 each."
+   ],
+   [
+    "2.27%",
+    "<strong>Click rate.</strong>"
+   ],
+   [
+    "$87.74",
+    "<strong>Spent.</strong>"
+   ]
+  ]
+ },
+ {
+  "date": "18 May 2026",
+  "tag": "Test: phone calls",
+  "tone": "warn",
+  "img": 9,
+  "h": "53 clicks, but no phone calls yet",
+  "p": [
+   "This ad was set up to get people to call the business directly. After $42.27 it had 53 clicks at $0.80 each, but no calls yet (shown by the dash under cost per result).",
+   "Tests like this show which approach to drop, so the budget goes to the ads that bring in bookings."
+  ],
+  "s": [
+   [
+    "$42.27",
+    "<strong>Spent.</strong>"
+   ],
+   [
+    "53",
+    "<strong>Clicks</strong> at $0.80 each."
+   ],
+   [
+    "0",
+    "<strong>Calls placed</strong> so far."
+   ],
+   [
+    "1.81",
+    "<strong>Frequency.</strong>"
+   ]
+  ]
+ },
+ {
+  "date": "18 May 2026",
+  "tag": "Low cost",
+  "tone": "good",
+  "img": 10,
+  "h": "5 leads at $11 each",
+  "p": [
+   "$55.29 of ad spend brought 110 clicks at 50 cents each.",
+   "It produced 5 leads at $11.06 each, one of the cheapest costs per lead in this set."
+  ],
+  "s": [
+   [
+    "5",
+    "<strong>Leads</strong> at $11.06 each."
+   ],
+   [
+    "110",
+    "<strong>Clicks.</strong>"
+   ],
+   [
+    "$0.50",
+    "<strong>Cost per click.</strong>"
+   ],
+   [
+    "2.76%",
+    "<strong>Click rate.</strong>"
+   ]
+  ]
+ },
+ {
+  "date": "21 May 2026",
+  "tag": "Creative test",
+  "tone": "",
+  "img": 11,
+  "h": "Four ads tested to see which one grabs attention",
+  "p": [
+   "Four versions of an ad (one per row) ran on a very small budget to see which one people respond to. The top ad got 15 clicks at 10 cents each.",
+   "Another got 17.86% of viewers clicking, but from a small sample. The winners get the bigger budget."
+  ],
+  "s": [
+   [
+    "15",
+    "<strong>Clicks</strong> on the top ad."
+   ],
+   [
+    "$0.05–0.82",
+    "<strong>Cost per click</strong> across the four ads."
+   ],
+   [
+    "$3.34–22.42",
+    "<strong>CPM.</strong> The cost to show each ad 1,000 times."
+   ],
+   [
+    "3.48%",
+    "<strong>Click rate</strong> on the top ad."
+   ]
+  ]
+ },
+ {
+  "date": "23 May 2026",
+  "tag": "Lowest cost",
+  "tone": "good",
+  "img": 12,
+  "h": "11 conversations, the cheapest at $6.29 each",
+  "p": [
+   "Two ads ran side by side. The first brought 7 conversations at $6.29 each, the lowest cost per conversation in this set. The second brought 4 at $12.91 each.",
+   "Together that's about $96 for 11 people messaging the business."
+  ],
+  "s": [
+   [
+    "11",
+    "<strong>Conversations</strong> across both ads."
+   ],
+   [
+    "$6.29",
+    "<strong>Cost per conversation</strong> on the top ad."
+   ],
+   [
+    "29",
+    "<strong>Link clicks</strong> across both ads."
+   ],
+   [
+    "2.45%",
+    "<strong>Click rate</strong> on the top ad."
+   ]
+  ]
+ }
+]
