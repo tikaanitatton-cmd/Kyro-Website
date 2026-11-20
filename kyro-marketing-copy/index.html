@@ -1050,7 +1050,7 @@ function PxIconChevron({ className = "h-4 w-4", open }) {
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.25s ease" }}
+      style={{ transform: open ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)" }}
     >
       <path d="m6 9 6 6 6-6" />
     </svg>
@@ -1677,6 +1677,15 @@ function KyroIconWeb({ className = "h-5 w-5" }) {
     </svg>
   );
 }
+function KyroIconGoogle({ className = "h-5 w-5" }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="10.5" cy="10.5" r="6.5" />
+      <path d="m15.5 15.5 5 5" />
+      <path d="M8 10.5h5" />
+    </svg>
+  );
+}
 function KyroIconMail({ className = "h-4 w-4" }) {
   return (
     <svg className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -1753,147 +1762,147 @@ function KyroHero() {
 
 const KYRO_SERVICES = [
   {
-    slug: "tiktok-ads",
-    Icon: KyroIconTikTok,
-    title: "TikTok Ads",
-    tag: "Short-Form Video",
-    body: "Get in front of thousands of local buyers without a big budget. TikTok's algorithm does the heavy lifting, and we make sure your ad is what stops the scroll.",
-    overview: "We build TikTok campaigns that feel native to the platform so they earn attention instead of getting skipped. Your potential customers are already on TikTok, and we make sure they see you.",
-    different: [
-      "Creative built for how TikTok actually works, not repurposed TV ads",
-      "Rapid hook testing so you find what converts fast",
-      "Campaigns optimised for enquiries and bookings, not just views",
-    ],
-    process: [
-      "Research what's already working in your niche",
-      "Test multiple hooks and formats in parallel",
-      "Scale budget behind the creative that converts",
-      "Refresh regularly to maintain performance",
-    ],
-    benefits: [
-      "More enquiries from people in your area",
-      "Lower cost per lead than traditional advertising",
-      "Brand visibility that compounds over time",
-    ],
-  },
-  {
-    slug: "facebook-campaigns",
+    slug: "meta-ads",
     Icon: KyroIconFacebook,
-    title: "Facebook & Instagram",
-    tag: "Paid Social",
-    body: "Turn your ad spend into a steady stream of calls, messages, and bookings from people in your area who are ready to buy.",
-    overview: "Facebook and Instagram let you put your business in front of the exact type of customer you want. We set up campaigns that bring in real enquiries, not just likes and comments.",
+    title: "Meta Ads",
+    tag: "Facebook & Instagram",
+    body: "Turn ad spend into calls, messages and bookings from car owners near you who are ready to book a detail, tint, ceramic coating, PPF or headlight restoration.",
+    overview: "Facebook and Instagram put your workshop in front of local car owners while they scroll. We build campaigns for detailing, washing, tinting, ceramic coating, PPF and headlight restoration businesses that bring in real enquiries, not just likes.",
     different: [
-      "Campaigns structured to drive calls and messages, not vanity metrics",
-      "Weekly optimisation so your budget keeps working harder",
-      "Retargeting to capture people who looked but didn't enquire yet",
+      "Campaigns built to drive calls, messages and bookings, not vanity metrics",
+      "One offer per campaign, such as a ceramic coating package or a tint quote",
+      "Retargeting for people who watched your work but didn't enquire yet",
     ],
     process: [
-      "Build targeted audiences based on your ideal customer",
-      "Launch and test ads with clear tracking from day one",
-      "Shift budget toward what's generating results",
-      "Add retargeting to convert warm leads",
+      "Pick the services with the best margin and build one clear offer for each",
+      "Launch ads aimed at car owners in your suburbs with tracking from day one",
+      "Move budget toward the ads that generate enquiries",
+      "Add retargeting to win back warm leads",
     ],
     benefits: [
-      "Consistent flow of new enquiries every week",
-      "Know exactly what your ad spend is generating",
-      "Reach customers you'd never find through word of mouth alone",
-    ],
-  },
-  {
-    slug: "ad-creative",
-    Icon: KyroIconCreative,
-    title: "Ad Creative",
-    tag: "Creative",
-    body: "Ads that actually get clicked. We create visuals and copy that make people stop, read, and take action, not scroll straight past.",
-    overview: "Your ad creative is the first thing a potential customer sees. If it doesn't stop them, nothing else matters. We design ads built around what actually converts in your industry.",
-    different: [
-      "Creative tested against real data, not gut feeling",
-      "Fast turnaround so you're never waiting on assets",
-      "Built for each platform, not the same image resized",
-    ],
-    process: [
-      "Research top-converting creative in your niche",
-      "Produce multiple concepts to test",
-      "Identify winners and scale them",
-      "Continuously refresh to prevent ad fatigue",
-    ],
-    benefits: [
-      "More clicks for the same spend",
-      "Ads that build trust and credibility fast",
-      "A library of proven assets you own",
-    ],
-  },
-  {
-    slug: "audience-targeting",
-    Icon: KyroIconTarget,
-    title: "Audience Targeting",
-    tag: "Reach",
-    body: "Stop paying to show your ads to people who'll never buy. We target the right suburbs, the right demographics, and the right intent signals.",
-    overview: "Showing your ad to the wrong people is the fastest way to burn your budget. We build targeting strategies that put your business in front of people who are actually likely to enquire.",
-    different: [
-      "Targeting built around your actual customers, not assumptions",
-      "Constant refinement as your campaigns learn and improve",
-      "Separate strategies for new customers vs warm retargeting",
-    ],
-    process: [
-      "Analyse your existing customer base for patterns",
-      "Build tiered audiences from cold to warm",
-      "Test and refine based on real conversion data",
-      "Concentrate spend on the highest-value segments",
-    ],
-    benefits: [
-      "Lower cost per enquiry over time",
-      "Less wasted spend on the wrong audience",
-      "Faster path to a profitable campaign",
-    ],
-  },
-  {
-    slug: "analytics-reporting",
-    Icon: KyroIconChart,
-    title: "Reporting",
-    tag: "Transparency",
-    body: "Know exactly what your ads are generating, in plain English, not a confusing spreadsheet. We tell you what's working, what's not, and what we're doing about it.",
-    overview: "Most agencies hide behind impressions and reach. We report on what actually matters to you: enquiries, bookings, and revenue. You'll always know where your money is going.",
-    different: [
-      "Reports that show revenue impact, not just ad metrics",
-      "Weekly check-ins so you're never left wondering",
-      "Honest conversation when something isn't working",
-    ],
-    process: [
-      "Set up tracking tied to real business outcomes",
-      "Review performance every week",
-      "Flag issues early and adjust fast",
-      "Monthly summary with clear next steps",
-    ],
-    benefits: [
-      "Full visibility over your ad spend",
-      "Faster decisions based on real data",
-      "No surprises at the end of the month",
+      "A steadier flow of enquiries from your local area",
+      "Clear numbers on what your ad spend is generating",
+      "Reach car owners you'd never meet through word of mouth alone",
     ],
   },
   {
     slug: "website-creation",
     Icon: KyroIconWeb,
-    title: "Landing Pages",
+    title: "Website Creation",
     tag: "Conversion",
-    body: "A great ad sending people to a bad page is wasted money. We build fast, simple landing pages designed to turn visitors into enquiries.",
-    overview: "If your website doesn't convert, your ad spend is working against you. We build landing pages that are fast, clear, and built around one goal: getting you more enquiries.",
+    body: "A great ad sending people to a weak page wastes money. We build fast, mobile-first sites that show your work and turn visitors into booked jobs.",
+    overview: "Your website is where every ad click lands. We build clear, quick sites for detailing, tinting, ceramic coating, PPF and headlight restoration businesses, built around one goal: getting the customer to enquire or book.",
     different: [
-      "Built for conversion first, not just to look nice",
-      "Optimised for mobile and fast load times",
-      "Designed to match your ads so nothing feels off",
+      "Built to convert first, with your packages, photos and booking form up front",
+      "Fast on mobile, where most car owners will see it",
+      "Matches your ads so the offer on the page is the offer they clicked",
     ],
     process: [
-      "Map the journey from ad click to enquiry",
-      "Design and build a focused landing page",
-      "Test speed and mobile experience before launch",
-      "Refine based on conversion data",
+      "Map the journey from ad click to booked job",
+      "Design and build the site around your services and your best work",
+      "Test speed and the mobile experience before launch",
+      "Refine based on how visitors actually use it",
     ],
     benefits: [
       "More enquiries from the same ad spend",
-      "A page that works as hard as your ads",
-      "Looks professional and builds trust instantly",
+      "A site that makes a new customer trust you quickly",
+      "One place for your services, gallery and contact details",
+    ],
+  },
+  {
+    slug: "google-ads",
+    Icon: KyroIconGoogle,
+    title: "Google Ads",
+    tag: "Search",
+    body: "Be the business people find the moment they search for car detailing, ceramic coating or window tinting in your area.",
+    overview: "People who search for a service near them are often ready to book. Google Ads puts your business at the top of those searches. We set up and manage campaigns for automotive businesses so you pay for searches that can turn into jobs.",
+    different: [
+      "Campaigns built around the searches car owners actually make in your suburbs",
+      "Separate ad groups for each service, such as ceramic coating, PPF, tinting and headlight restoration",
+      "Call and enquiry tracking, so we count jobs and not only clicks",
+    ],
+    process: [
+      "Research the local searches and competitors for each service",
+      "Build tightly focused campaigns and ads for each service",
+      "Track calls and form enquiries from day one",
+      "Trim wasted searches and put budget behind what converts",
+    ],
+    benefits: [
+      "Reach customers at the moment they are looking for you",
+      "Pay for local searches, not for people far outside your area",
+      "Know which searches lead to enquiries",
+    ],
+  },
+  {
+    slug: "targeting",
+    Icon: KyroIconTarget,
+    title: "Targeting",
+    tag: "Reach",
+    body: "Stop paying to show your ads to people who'll never book. We aim at the right suburbs, the right car owners and the right buying signals.",
+    overview: "Showing an ad to the wrong people is the fastest way to burn budget. We build targeting that puts your detailing, tinting, coating or PPF offer in front of people who are likely to enquire, close enough to actually visit.",
+    different: [
+      "Targeting built around your real customers and your service area",
+      "Separate plans for new customers and for people who already know you",
+      "Constant refinement as the campaigns learn",
+    ],
+    process: [
+      "Define your service area and your most valuable customers",
+      "Build audiences from cold to warm, including website visitors and past customers",
+      "Test and refine using real enquiry data",
+      "Concentrate spend on the segments that book",
+    ],
+    benefits: [
+      "Less budget wasted on the wrong audience",
+      "A lower cost per enquiry over time",
+      "A faster path to a profitable campaign",
+    ],
+  },
+  {
+    slug: "ad-creatives",
+    Icon: KyroIconCreative,
+    title: "Ad Creatives",
+    tag: "Creative",
+    body: "Ads that get noticed. Before and afters, finished-car shots and short clips that make people stop scrolling and enquire.",
+    overview: "The ad is the first thing a customer sees, and in a visual trade your work is your best ad. We turn your jobs into images, video and copy built to stop the scroll and get the enquiry.",
+    different: [
+      "Creative built from your real work: transformations, process clips and finished cars",
+      "Several versions tested against each other so data picks the winner",
+      "Made for each platform, not one image resized",
+    ],
+    process: [
+      "Collect your best jobs, photos and clips",
+      "Produce several concepts and hooks to test",
+      "Find the winners and scale them",
+      "Refresh regularly so the ads don't go stale",
+    ],
+    benefits: [
+      "More clicks for the same spend",
+      "Ads that build trust before the first message",
+      "A library of proven ads you own",
+    ],
+  },
+  {
+    slug: "tiktok-ads",
+    Icon: KyroIconTikTok,
+    title: "TikTok Ads",
+    tag: "Short-Form Video",
+    body: "Get in front of local car owners without a big budget. Short, satisfying detailing and tint clips are made for TikTok, and we make sure yours stop the scroll.",
+    overview: "Transformation videos do well on TikTok, and your future customers are already watching them. We build TikTok campaigns that feel native to the platform so they earn attention instead of getting skipped.",
+    different: [
+      "Creative built for how TikTok works, not repurposed ads from other platforms",
+      "Quick hook testing to find what holds attention",
+      "Campaigns aimed at enquiries and bookings, not just views",
+    ],
+    process: [
+      "Research what's already working in the automotive niche",
+      "Test several hooks and formats in parallel",
+      "Scale budget behind the videos that convert",
+      "Refresh regularly to keep results up",
+    ],
+    benefits: [
+      "More enquiries from people in your area",
+      "A cost-effective way to reach car owners",
+      "Brand visibility that builds over time",
     ],
   },
 ];
@@ -2497,15 +2506,40 @@ function KyroAbout() {
 function KyroFaqItem({ q, a, isOpen, onToggle }) {
   return (
     <div className="border-t border-kyroLine py-5">
-      <button className="w-full flex items-center justify-between text-left gap-4" onClick={onToggle}>
+      <button className="w-full flex items-center justify-between text-left gap-4" onClick={onToggle} aria-expanded={isOpen}>
         <span className="font-heading italic text-white text-lg md:text-xl">{q}</span>
         <span className="text-white/50 flex-shrink-0">
           <PxIconChevron open={isOpen} />
         </span>
       </button>
-      {isOpen && (
-        <p className="mt-3 text-sm text-white/70 font-body font-light leading-relaxed max-w-2xl">{a}</p>
-      )}
+      <div
+        aria-hidden={!isOpen}
+        style={{
+          display: "grid",
+          gridTemplateRows: isOpen ? "1fr" : "0fr",
+          opacity: isOpen ? 1 : 0,
+          transition: "grid-template-rows 0.6s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease " + (isOpen ? "0.08s" : "0s"),
+        }}
+      >
+        <div
+          style={{
+            overflow: "hidden",
+            minHeight: 0,
+            visibility: isOpen ? "visible" : "hidden",
+            transition: "visibility 0s linear " + (isOpen ? "0s" : "0.6s"),
+          }}
+        >
+          <p
+            className="pt-3 text-sm text-white/70 font-body font-light leading-relaxed max-w-2xl"
+            style={{
+              transform: isOpen ? "translateY(0)" : "translateY(-6px)",
+              transition: "transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)",
+            }}
+          >
+            {a}
+          </p>
+        </div>
+      </div>
     </div>
   );
 }
@@ -2692,11 +2726,12 @@ function KyroFooter({ ecom }) {
           <div>
             <h4 className="font-body text-[10px] uppercase tracking-[0.1em] text-white/50 mb-2">Services</h4>
             <ul className="flex flex-col gap-2">
+              <li><a href="#kyro-services" className="text-xs text-white/80 hover:text-white font-body transition">Meta Ads</a></li>
+              <li><a href="#kyro-services" className="text-xs text-white/80 hover:text-white font-body transition">Website Creation</a></li>
+              <li><a href="#kyro-services" className="text-xs text-white/80 hover:text-white font-body transition">Google Ads</a></li>
+              <li><a href="#kyro-services" className="text-xs text-white/80 hover:text-white font-body transition">Targeting</a></li>
+              <li><a href="#kyro-services" className="text-xs text-white/80 hover:text-white font-body transition">Ad Creatives</a></li>
               <li><a href="#kyro-services" className="text-xs text-white/80 hover:text-white font-body transition">TikTok Ads</a></li>
-              <li><a href="#kyro-services" className="text-xs text-white/80 hover:text-white font-body transition">Facebook Ads</a></li>
-              <li><a href="#kyro-services" className="text-xs text-white/80 hover:text-white font-body transition">Ad Creative</a></li>
-              <li><a href="#kyro-services" className="text-xs text-white/80 hover:text-white font-body transition">Analytics</a></li>
-              <li><a href="#kyro-services" className="text-xs text-white/80 hover:text-white font-body transition">Websites</a></li>
             </ul>
           </div>
 
@@ -2749,11 +2784,12 @@ function KyroFooter({ ecom }) {
         <div>
           <h4 className="font-body text-xs uppercase tracking-[0.1em] text-white/50 mb-4">Services</h4>
           <ul className="flex flex-col gap-2.5">
-            <li><a href="#kyro-services" className="text-sm text-white/80 hover:text-white font-body transition">TikTok Ads</a></li>
-            <li><a href="#kyro-services" className="text-sm text-white/80 hover:text-white font-body transition">Facebook Campaigns</a></li>
-            <li><a href="#kyro-services" className="text-sm text-white/80 hover:text-white font-body transition">Ad Creative</a></li>
-            <li><a href="#kyro-services" className="text-sm text-white/80 hover:text-white font-body transition">Analytics</a></li>
+            <li><a href="#kyro-services" className="text-sm text-white/80 hover:text-white font-body transition">Meta Ads</a></li>
             <li><a href="#kyro-services" className="text-sm text-white/80 hover:text-white font-body transition">Website Creation</a></li>
+            <li><a href="#kyro-services" className="text-sm text-white/80 hover:text-white font-body transition">Google Ads</a></li>
+            <li><a href="#kyro-services" className="text-sm text-white/80 hover:text-white font-body transition">Targeting</a></li>
+            <li><a href="#kyro-services" className="text-sm text-white/80 hover:text-white font-body transition">Ad Creatives</a></li>
+            <li><a href="#kyro-services" className="text-sm text-white/80 hover:text-white font-body transition">TikTok Ads</a></li>
           </ul>
         </div>
 
