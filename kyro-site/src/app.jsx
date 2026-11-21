@@ -3279,6 +3279,7 @@ function App() {
 
   const routeFromLocation = () => {
     if (typeof window === "undefined") return "";
+    if (window.__KYRO_FILE__) return window.location.hash; // single-file build: hash routes only
     const p = window.location.pathname.replace(/\/index\.html$/, "").replace(/\/+$/, "");
     let m;
     if (p === "/apply") return "#apply";
@@ -3312,8 +3313,8 @@ function App() {
   const activeIndustry = KYRO_INDUSTRIES.find((s) => route === "#industry-" + s.slug);
   const isLegalPage = route === "#privacy" || route === "#terms";
   const isApplyPage = route === "#apply";
-  const isCaseStudiesPage = route === "/case-studies/";
-  const isAdResultsPage = route === "/results/";
+  const isCaseStudiesPage = route === "/case-studies/" || route === "#case-studies";
+  const isAdResultsPage = route === "/results/" || route === "#ad-results";
 
   // When navigating to a normal in-page anchor (not a service page), scroll
   // to it manually since the browser's native hash-scroll only fires once,
